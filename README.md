@@ -2,15 +2,18 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+### first time setup
+
+#### get config
+Get the configuration from our secret google drive and put it in src/page.tsx. DO NOT COMMIT THIS INFO.
+
+#### install dependencies
+`npm install`
+
+### every time
 First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+`npm run dev`
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
