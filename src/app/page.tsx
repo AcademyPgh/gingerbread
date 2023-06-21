@@ -2,6 +2,7 @@ import { drizzle } from "drizzle-orm/planetscale-serverless";
 import { connect } from "@planetscale/database";
 import { pgTable, serial, text, varchar } from 'drizzle-orm/pg-core';
 import { InferModel } from 'drizzle-orm'; 
+import Link from 'next/link'
 
 const connection = connect({
   host: process.env["DATABASE_HOST"],
@@ -26,6 +27,7 @@ export default function Home() {
     <div>
       <div>HELL YES</div>
       {output}
+      <Link href="/login">login</Link>
     </div>
   )
 }
