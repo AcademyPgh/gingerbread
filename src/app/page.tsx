@@ -2,9 +2,9 @@ import { connect } from '@planetscale/database'
 
 const config = {
   //add connection info here
-  host: '<host>',
-  username: '<username>',
-  password: '<pass>'
+  host: process.env["DATABASE_HOST"],
+  username: process.env["DATABASE_USERNAME"],
+  password: process.env["DATABASE_PASSWORD"]
 }
 
 const conn = connect(config)

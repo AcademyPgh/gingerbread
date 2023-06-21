@@ -5,7 +5,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ### first time setup
 
 #### get config
-Get the configuration from our secret google drive and put it in src/page.tsx. DO NOT COMMIT THIS INFO.
+Get the .env.local file from our secret google drive and put it in the root project directory.
 
 #### install dependencies
 `npm install`
