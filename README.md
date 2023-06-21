@@ -2,21 +2,35 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+### first time setup
+
+#### get config
+Get the configuration from our secret google drive and put it in src/page.tsx. DO NOT COMMIT THIS INFO.
+
+#### install dependencies
+`npm install`
+
+### every time
 First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+`npm run dev`
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+
+## contributing
+To commit to this project:
+* make sure you're on the main branch and it's up to date:
+    * `git checkout main`
+    * `git rebase origin/main`
+* start a new branch: `git checkout -b [feature-name]`
+* do your work, make your commits
+* push your branch: `git push origin [feature-name]`
+* make a PR against main on github
+* ask for review
 
 ## Learn More
 
