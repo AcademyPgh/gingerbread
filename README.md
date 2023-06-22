@@ -23,6 +23,7 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 ## contributing
 To commit to this project:
+* You do not need to fork it; just clone it to your local computer.
 * make sure you're on the main branch and it's up to date:
     * `git checkout main`
     * `git rebase origin/main`
