@@ -1,7 +1,11 @@
+//connection imports
 import { drizzle } from "drizzle-orm/planetscale-serverless";
 import { connect } from "@planetscale/database";
-import { pgTable, serial, text, varchar } from 'drizzle-orm/pg-core';
-import { InferModel } from 'drizzle-orm'; 
+
+//query imports
+import { mysqlTable, serial, text, varchar } from 'drizzle-orm/mysql-core';
+import { InferModel } from 'drizzle-orm';
+
 import Link from 'next/link'
 
 const connection = connect({
@@ -10,7 +14,7 @@ const connection = connect({
   password: process.env["DATABASE_PASSWORD"],
 });
 
-export const users = pgTable('runners', {
+export const users = mysqlTable('runners', {
   id: serial('id').primaryKey(),
   name: text('name'),
 });
@@ -22,7 +26,7 @@ const db = drizzle(connection);
 const result: User[] = await db.select().from(users);
 console.log(result[0].id,result[0].name);
 export default function Home() {
-  const output = result.map((_,index) => <div>{_.name}</div>);
+  const output = result.map((runner,index) => <div>{runner.name}</div>);
   return (
     <div>
       <div>HELL YES</div>
