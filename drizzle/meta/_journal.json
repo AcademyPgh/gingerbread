@@ -1,1 +1,20 @@
-{"version":"5","dialect":"pg","entries":[]}
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1687459395949,
+      "tag": "0000_gorgeous_skaar",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1687466041039,
+      "tag": "0001_ambiguous_fallen_one",
+      "breakpoints": true
+    }
+  ]
+}

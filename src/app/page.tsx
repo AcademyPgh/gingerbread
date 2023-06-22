@@ -6,25 +6,34 @@ import { connect } from "@planetscale/database";
 import { mysqlTable, serial, text, varchar } from 'drizzle-orm/mysql-core';
 import { InferModel } from 'drizzle-orm';
 
+//link import
 import Link from 'next/link'
 
+//migration imports
+import { migrate } from 'drizzle-orm/planetscale-serverless/migrator';
+
+//db connection 
 const connection = connect({
   host: process.env["DATABASE_HOST"],
   username: process.env["DATABASE_USERNAME"],
   password: process.env["DATABASE_PASSWORD"],
 });
+const db = drizzle(connection);
 
+//define object for ORM db access
 export const users = mysqlTable('runners', {
   id: serial('id').primaryKey(),
   name: text('name'),
 });
 
+//attempt to run migrations
+migrate(db, { migrationsFolder: './drizzle' });
+
 type User = InferModel<typeof users, "select">;
 type NewUser = InferModel<typeof users, "insert">;
 
-const db = drizzle(connection);
 const result: User[] = await db.select().from(users);
-console.log(result[0].id,result[0].name);
+
 export default function Home() {
   const output = result.map((runner,index) => <div>{runner.name}</div>);
   return (
