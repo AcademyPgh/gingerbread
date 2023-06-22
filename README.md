@@ -5,7 +5,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ### first time setup
 
 #### get config
-Get the .env.local file from our secret google drive and put it in the root project directory.
+Get the .env.local file from our secret google drive and put it in the root project directory. Make sure that it is named exactly `.env.local`
 
 #### install dependencies
 `npm install`
