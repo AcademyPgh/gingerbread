@@ -1,7 +1,7 @@
 export default function Home() {
     return (
       <div>
-        testing routes
+        Login Page
       </div>
     )
   }

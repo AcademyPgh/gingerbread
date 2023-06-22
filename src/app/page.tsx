@@ -29,9 +29,9 @@ export default function Home() {
   const output = result.map((runner,index) => <div>{runner.name}</div>);
   return (
     <div>
-      <div>HELL YES</div>
+      <div>Landing/Race List</div>
       {output}
-      <Link href="/login">login</Link>
+      <Link href="/login">Log In</Link>
     </div>
   )
 }
