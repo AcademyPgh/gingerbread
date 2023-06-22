@@ -1,7 +1,7 @@
 export default function Home() {
     return (
       <div>
-        Admin User List
+        <h1>Admin User List</h1>
       </div>
     )
   }

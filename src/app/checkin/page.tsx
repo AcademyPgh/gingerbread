@@ -1,7 +1,7 @@
 export default function Home() {
     return (
       <div>
-        User Check In List
+        <h1>User Check In List</h1>
       </div>
     )
   }
