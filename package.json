@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "generate": "drizzle-kit generate:pg"
+    "generate": "drizzle-kit generate:mysql",
+    "pushdb": "drizzle-kit push:mysql"
   },
   "dependencies": {
     "@planetscale/database": "^1.7.0",
