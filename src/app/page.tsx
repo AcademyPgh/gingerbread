@@ -29,9 +29,9 @@ export default function Home() {
   const output = result.map((runner,index) => <div>{runner.name}</div>);
   return (
     <div>
-      <div>HELL YES</div>
+      <h1>Landing/Race List</h1>
+      <li><Link href="/races">Example Race {"(Link won't work due to eventual dynamic routing)"}</Link></li>
       {output}
-      <Link href="/login">login</Link>
     </div>
   )
 }
