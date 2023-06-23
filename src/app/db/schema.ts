@@ -1,5 +1,3 @@
-//contents are placeholder
-
 import { serial, text, timestamp, mysqlTable } from "drizzle-orm/mysql-core";
  
 export const user = mysqlTable("user", {
