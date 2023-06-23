@@ -1,11 +1,11 @@
 //db imports
 import { db, User, NewUser } from './db/dbstuff';
-import { user } from './db/schema';
+import { users } from './db/schema';
 
 //link import
 import Link from 'next/link'
 
-const result: User[] = await db.select().from(user);
+const result: User[] = await db.select().from(users);
 
 export default function Home() {
   const output = result.map((runner,index) => <div>{runner.username} & {runner.firstname} & {runner.lastname}</div>);
