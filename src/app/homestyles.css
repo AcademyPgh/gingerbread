@@ -1,0 +1,10 @@
+.listedrace{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    justify-content: space-between;
+    background-color: lightgray;
+    margin: 10px;
+    justify-self: center;
+    border: 1px solid black;
+}
