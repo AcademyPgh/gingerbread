@@ -16,7 +16,7 @@ export const users = mysqlTable("users", {
 
 export const races = mysqlTable("races", {
   id: serial("id"),
-  name: varchar("name", {length: 255}),
+  name: varchar("name", {length: 256}),
   routeURL: varchar("routeurl", {length: 2048}),
   heroURL: varchar("herourl", {length: 2048}),
   starttime: datetime("starttime"),

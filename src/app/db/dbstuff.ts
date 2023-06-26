@@ -8,9 +8,6 @@ import { InferModel } from 'drizzle-orm';
 //import db object def from schema
 import { users, races } from './schema';
 
-//migration imports
-import { migrate } from 'drizzle-orm/planetscale-serverless/migrator';
-
 //db connection 
 const connection = connect({
   host: process.env["DATABASE_HOST"],
@@ -26,5 +23,3 @@ export type Race = InferModel<typeof races, "select">;
 //insert types
 export type NewUser = InferModel<typeof users, "insert">;
 
-//attempt to run migrations
-migrate(db, { migrationsFolder: './drizzle' });

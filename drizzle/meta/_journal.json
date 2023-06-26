@@ -1,13 +1,1 @@
-{
-  "version": "0",
-  "dialect": "mysql",
-  "entries": [
-    {
-      "idx": 0,
-      "version": "5",
-      "when": 1687806717958,
-      "tag": "0000_round_kabuki",
-      "breakpoints": true
-    }
-  ]
-}
+{"version":"0","dialect":"mysql","entries":[{"idx":0,"version":"5","when":1687806717958,"tag":"0000_round_kabuki","breakpoints":true}]}
