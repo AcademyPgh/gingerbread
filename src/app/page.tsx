@@ -22,6 +22,7 @@ export default function Home() {
 
 //pull a couple fields out of the object to populate the list item
 function RaceComponent(props: any){
+  //see schema.ts for which fields you have access to through the Race object
   const race: Race = props.myrace;
   const start = race.starttime;
   const fullDate = `${start?.getMonth()}/${start?.getDate()}/${start?.getFullYear()}`;

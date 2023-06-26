@@ -1,1 +1,0 @@
-RENAME TABLE `user` TO `users`;

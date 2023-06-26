@@ -1,6 +1,6 @@
 //db imports
-import { db, Race } from '@/app/db/dbstuff';
-import { races } from '@/app/db/schema';
+import { db, Race } from '@/db/dbstuff';
+import { races } from '@/db/schema';
 import { eq } from "drizzle-orm";
 
 //pull in race ID through URL
