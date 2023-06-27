@@ -1,7 +1,9 @@
 //db imports
 import { db, Race } from './db/dbstuff';
 import { races } from './db/schema';
-
+import Image  from 'next/image';
+import logo from './images/Gingerbread.jpg';
+import people from './images/peoplerunning.jpg'
 //link import
 import Link from 'next/link'
 
@@ -14,7 +16,44 @@ export default function Home() {
   const racelist = result.map((race,index) => {return(<RaceComponent myrace={race} key={index}/>);});
   return (
     <div>
-      <h1>Landing/Race List</h1>
+      <Image
+      src={logo}
+      alt='gingerbread'
+      className='logo'
+      />
+      <Image
+      src={people}
+      alt='people running'
+      className='people'
+      /> 
+      <div className='bigInfoHolder'>
+        <div className='topInfoHolder'>
+          <div className='findRace'>
+            Find a race: 
+          </div>
+          <div className='inputHolder'>
+            <form noValidate action="" role="search">
+              <input 
+                placeholder="Search Races"
+                style={{ height:'20px',width:'280px',borderRadius:"10px"}}
+                title='Search bar'
+              />
+            </form>
+          </div>
+        </div>
+        
+        <div className='bottomInfoHolder'>
+          <div className='raceName'>
+            Race Name:
+          </div>
+          <div className='date'>
+            Date:
+          </div>
+          <div className='location'>
+            Location:
+          </div>
+        </div>
+      </div>
       {racelist}
     </div>
   )

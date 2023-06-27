@@ -1,10 +1,50 @@
 .listedrace{
     display: flex;
     flex-direction: row;
-    width: 80%;
+    width: 90%;
     justify-content: space-between;
     background-color: lightgray;
     margin: 10px;
     justify-self: center;
     border: 1px solid black;
+}
+.logo{
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+}
+.people{
+   height: 62vh;
+   width: 100%;
+}
+.topInfoHolder{
+    width: 100%;
+    height: 2em;
+    background-color: #B09070;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.findRace{
+    position: absolute;
+    left: 32%;
+    color: white;
+}
+.bottomInfoHolder{
+    width: 100%;
+    height: 2em;
+    background-color: #B09070;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.raceName{
+width: 33%;
+}
+.date{
+width: 33%;
+}
+.location{
+width: 33%;
 }
