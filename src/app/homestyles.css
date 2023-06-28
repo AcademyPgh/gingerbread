@@ -3,10 +3,11 @@
     flex-direction: row;
     width: 90%;
     justify-content: space-between;
-    background-color: lightgray;
+    background-color: white;
     margin: 10px;
     justify-self: center;
     border: 1px solid black;
+    padding: 10px;
 }
 .logo{
     margin-right: auto;
@@ -14,7 +15,7 @@
     display: block;
 }
 .people{
-   height: 62vh;
+   height: 69vh;
    width: 100%;
 }
 .topInfoHolder{

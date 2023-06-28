@@ -35,7 +35,7 @@ export default function Home() {
             <form noValidate action="" role="search">
               <input 
                 placeholder="Search Races"
-                style={{ height:'20px',width:'280px',borderRadius:"10px"}}
+                style={{ height:'20px',width:'280px',borderRadius:"10px", paddingLeft: "10px"}}
                 title='Search bar'
               />
             </form>
