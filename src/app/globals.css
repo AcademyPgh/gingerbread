@@ -7,3 +7,9 @@
     justify-content: space-around;
     padding: 10px;
 }
+
+.genericform{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}

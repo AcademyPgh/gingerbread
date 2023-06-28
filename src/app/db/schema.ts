@@ -19,6 +19,7 @@ export const races = mysqlTable("races", {
   name: varchar("name", {length: 256}),
   routeURL: varchar("routeurl", {length: 2048}),
   heroURL: varchar("herourl", {length: 2048}),
+  //location
   starttime: datetime("starttime"),
   endtime: datetime("endtime"),
   description: text("description"),
