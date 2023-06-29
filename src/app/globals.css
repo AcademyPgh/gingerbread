@@ -6,5 +6,9 @@
     align-content: space-between;
     justify-content: space-around;
     padding: 10px 0px;
-    /* way to change Home, My Account, and Login text to white?? */
+}
+.genericform{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }

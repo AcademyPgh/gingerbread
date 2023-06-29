@@ -22,4 +22,5 @@ export type Race = InferModel<typeof races, "select">;
 
 //insert types
 export type NewUser = InferModel<typeof users, "insert">;
+export type NewRace = InferModel<typeof races, "insert">;
 

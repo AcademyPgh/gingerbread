@@ -3,7 +3,8 @@ export default function Home() {
     return (
       <div>
         <h1>Login Page</h1>
-        <Link href="/userhub">Log In</Link>
+        <div><Link href="/userhub">Log In User</Link></div>
+        <div><Link href="/adminhub">Log In Admin</Link></div>
       </div>
     )
   }
