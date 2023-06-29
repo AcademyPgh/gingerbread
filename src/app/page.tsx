@@ -1,7 +1,9 @@
 //db imports
 import { db, Race } from './db/dbstuff';
 import { races } from './db/schema';
-
+import Image  from 'next/image';
+import logo from './images/Gingerbread.jpg';
+import people from './images/peoplerunning.jpg'
 //link import
 import Link from 'next/link'
 
@@ -14,7 +16,45 @@ export default function Home() {
   const racelist = result.map((race,index) => {return(<RaceComponent myrace={race} key={index}/>);});
   return (
     <div>
-      <h1>Landing/Race List</h1>
+      <Image
+      src={logo}
+      alt='gingerbread'
+      className='logo'
+      />
+      <Image
+      src={people}
+      alt='people running'
+      className='people'
+      /> 
+      <div className='bigInfoHolder'>
+        <div className='topInfoHolder'>
+          <div className='findRace'>
+          Find Race:
+         </div>
+          <div className='inputHolder'>
+            <form noValidate action="" role="search" >
+              <input
+                placeholder="Search Races"
+                style={{ height:'20px',width:'280px',borderRadius:'10px', paddingLeft: '10px', marginTop: '5px',
+              marginLeft: '8px'}}
+                title='Search bar'
+              />
+            </form>
+          </div>
+        </div>
+        
+        <div className='bottomInfoHolder'>
+          <div className='raceNameHolder'>
+            Race Name:
+          </div>
+          <div className='date'>
+            Start Date & Time:
+          </div>
+          <div className='description'>
+            Description:
+          </div>
+        </div>
+      </div>
       {racelist}
     </div>
   )
@@ -31,10 +71,12 @@ function RaceComponent(props: any){
   //return our data from the db plus a dynamic route link based on the race ID
   return (
     <li className='listedrace'>
-      <div>Name: <Link href={`/races/${race.id}`}>{race.name}</Link></div>
-      <div>Start Date: {fullDate}</div>
-      <div>Start Time: {fullTime}</div>
-      <div>Description: {race.description}</div>
+      <div className='NamesOfRaces'> <Link href={`/races/${race.id}`}>{race.name}</Link></div>
+      
+      <div className='dateAndTime'> {fullDate} {fullTime}</div>
+      {/* <div> {fullTime}</div> */}
+      <div className='descInfo'> {race.description}</div>
+      {/* how are we going to handle overflow? wrap???  */}
     </li>
   )
 }
