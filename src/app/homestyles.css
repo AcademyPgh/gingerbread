@@ -1,13 +1,14 @@
 .listedrace{
     display: flex;
     flex-direction: row;
-    width: 90%;
-    justify-content: space-between;
+    width: 98%;
+    justify-content: space-around;
     background-color: white;
     margin: 10px;
     justify-self: center;
     border: 1px solid black;
-    padding: 10px;
+    padding: 5px;
+    overflow: wrap;
 }
 .logo{
     margin-right: auto;
@@ -27,9 +28,10 @@
     align-items: center;
 }
 .findRace{
-    position: absolute;
-    left: 32%;
+    left: 35%;
     color: white;
+    padding-left: "10px";
+    margin-top: "20px";
 }
 .bottomInfoHolder{
     width: 100%;
@@ -40,12 +42,26 @@
     align-items: center;
     color: white;
 }
-.raceName{
+.raceNameHolder{
 width: 33%;
 }
 .date{
 width: 33%;
 }
-.location{
-width: 33%;
+.description{
+width: 20%;
+text-align: center;
+}
+
+.NamesOfRaces{
+    width: 20%;
+    padding-left: 30px;
+}
+.descInfo{
+    width: 20%;
+    padding-left: 30px;
+}
+.dateAndTime{
+    width: 20%;
+    padding-left: 30px;
 }

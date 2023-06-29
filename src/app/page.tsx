@@ -29,13 +29,14 @@ export default function Home() {
       <div className='bigInfoHolder'>
         <div className='topInfoHolder'>
           <div className='findRace'>
-            Find a race: 
-          </div>
+          Find Race:
+         </div>
           <div className='inputHolder'>
-            <form noValidate action="" role="search">
-              <input 
+            <form noValidate action="" role="search" >
+              <input
                 placeholder="Search Races"
-                style={{ height:'20px',width:'280px',borderRadius:"10px", paddingLeft: "10px"}}
+                style={{ height:'20px',width:'280px',borderRadius:'10px', paddingLeft: '10px', marginTop: '5px',
+              marginLeft: '8px'}}
                 title='Search bar'
               />
             </form>
@@ -43,14 +44,14 @@ export default function Home() {
         </div>
         
         <div className='bottomInfoHolder'>
-          <div className='raceName'>
+          <div className='raceNameHolder'>
             Race Name:
           </div>
           <div className='date'>
-            Date:
+            Start Date & Time:
           </div>
-          <div className='location'>
-            Location:
+          <div className='description'>
+            Description:
           </div>
         </div>
       </div>
@@ -70,10 +71,12 @@ function RaceComponent(props: any){
   //return our data from the db plus a dynamic route link based on the race ID
   return (
     <li className='listedrace'>
-      <div>Name: <Link href={`/races/${race.id}`}>{race.name}</Link></div>
-      <div>Start Date: {fullDate}</div>
-      <div>Start Time: {fullTime}</div>
-      <div>Description: {race.description}</div>
+      <div className='NamesOfRaces'> <Link href={`/races/${race.id}`}>{race.name}</Link></div>
+      
+      <div className='dateAndTime'> {fullDate} {fullTime}</div>
+      {/* <div> {fullTime}</div> */}
+      <div className='descInfo'> {race.description}</div>
+      {/* how are we going to handle overflow? wrap???  */}
     </li>
   )
 }
