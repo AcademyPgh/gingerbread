@@ -1,1 +1,20 @@
-{"version":"0","dialect":"mysql","entries":[{"idx":0,"version":"5","when":1687806717958,"tag":"0000_round_kabuki","breakpoints":true}]}
+{
+  "version": "0",
+  "dialect": "mysql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1687806717958,
+      "tag": "0000_round_kabuki",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1688069106464,
+      "tag": "0001_lame_wilson_fisk",
+      "breakpoints": true
+    }
+  ]
+}

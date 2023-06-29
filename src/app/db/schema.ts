@@ -1,4 +1,4 @@
-import { serial, text, timestamp, mysqlTable, datetime, varchar } from "drizzle-orm/mysql-core";
+import { serial, text, timestamp, mysqlTable, datetime, varchar, int, float, boolean } from "drizzle-orm/mysql-core";
  
 export const users = mysqlTable("users", {
   id: serial("id"),
@@ -16,10 +16,10 @@ export const users = mysqlTable("users", {
 
 export const races = mysqlTable("races", {
   id: serial("id"),
-  name: varchar("name", {length: 256}),
+  name: varchar("name", {length: 255}),
   routeURL: varchar("routeurl", {length: 2048}),
   heroURL: varchar("herourl", {length: 2048}),
-  //location
+  location: varchar("location", {length: 2048}),
   starttime: datetime("starttime"),
   endtime: datetime("endtime"),
   description: text("description"),
@@ -31,19 +31,18 @@ export const races = mysqlTable("races", {
   updatedAt: timestamp("updated_at"),
 });
 
-//races
-//id
-//name
-//type: link to other table?
-//start time
-//start date
-
-//join table userRaces
-//id
-//userId
-//raceId
-//bibNumber
-//sensorId
+export const user_races = mysqlTable("user_races", {
+  id: serial("id"),
+  userid: int('userid').references(() => users.id),
+  raceid: int('raceid').references(() => races.id),
+  bibnumber: int('bibnumber'),
+  sensorid: int('sensorid'),
+  totaltime: float('totaltime'),
+  completed: boolean('completed'),
+  paid: boolean('paid'),
+  signupdate: timestamp('signupdate')
+  
+});
 
 //timings
 //id
