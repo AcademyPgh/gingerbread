@@ -1,13 +1,12 @@
 .navbar{
     width: 100%;
     height: 5vh;
-    background-color: aquamarine;
+    background-color: #B09070;
     display: inline-flex;
     align-content: space-between;
     justify-content: space-around;
-    padding: 10px;
+    padding: 10px 0px;
 }
-
 .genericform{
     display: flex;
     flex-direction: column;
