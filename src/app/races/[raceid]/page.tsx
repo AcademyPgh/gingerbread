@@ -33,7 +33,8 @@ export default async function Page({ params }: { params: { raceid: number } }) {
   {
     const myraceid = params.myrace;
     //this join is probably constructed incorrectly
-    const userlist = db.select({firstname: users.firstname, lastname: users.lastname}).from(users).innerJoin(user_races, eq(users.id,user_races.userid));
+    const userlist = db.select({firstname: users.firstname, lastname: users.lastname}).from(users).innerJoin(user_races, eq(myraceid,user_races.raceid));
+    
     return(
       <div>
           ssss
