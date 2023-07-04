@@ -1,5 +1,5 @@
 //db imports
-import { db, Race, User, UserRace } from '@/db/dbstuff';
+import { db, NewUserRace, Race, User, UserRace } from '@/db/dbstuff';
 import { races, users, user_races } from '@/db/schema';
 import { eq } from "drizzle-orm";
 
@@ -18,26 +18,34 @@ export default async function Page({ params }: { params: { raceid: number } }) {
 
   //otherwise, grab the result and return a page populated with that row of races
   const myrace: Race = result[0];
+  const joinresult = await db.select().from(users).innerJoin(user_races, eq(users.id,user_races.userid)).where(eq(user_races.raceid,myrace.id));
     return (
       <div>
         <h1>{myrace.name}</h1>
         <div>Description: {myrace.description}</div>
         <div>other stuff about the race here</div>
-        <h1>Assigned Users</h1>
-        <AssignedUsers  myrace={myrace.id}/>
+        <h1>Assigned Users:</h1>
+        <AssignedUsers  join={joinresult} thisrace={myrace}/>
       </div>
     )
   }
 
   function AssignedUsers(params: any)
   {
-    const myraceid = params.myrace;
-    //this join is probably constructed incorrectly
-    const userlist = db.select({firstname: users.firstname, lastname: users.lastname}).from(users).innerJoin(user_races, eq(myraceid,user_races.raceid));
+    const userlist = params.join.map((user: any) => <div>Id:{user.users.id} First:{user.users.firstname} Last:{user.users.lastname}</div>);
     
     return(
       <div>
-          ssss
+          {userlist}
+          <h2>Add New User to Race</h2>
+          <form action="/api/newraceuser" method="post">
+            <div>
+              <label htmlFor="userid">Racer ID:</label>
+              <input type="text" id="userid" name="userid" required minLength={1} maxLength={20}/>
+            </div>
+              <input type="hidden" id="raceid" name="raceid" value={params.thisrace.id}/>
+            <button type="submit">Submit</button>
+          </form>
       </div>
     );
   }
