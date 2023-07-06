@@ -1,6 +1,6 @@
 //db imports
-import { db, NewUserRace, Race, User, UserRace } from '@/db/dbstuff';
-import { races, users, user_races } from '@/db/schema';
+import { db, Race } from '@/db/dbstuff';
+import { races, users, signups } from '@/db/schema';
 import { eq } from "drizzle-orm";
 
 //pull in race ID through URL
@@ -17,28 +17,30 @@ export default async function Page({ params }: { params: { raceid: number } }) {
   }
 
   //otherwise, grab the result and return a page populated with that row of races
-  const myrace: Race = result[0];
-  const joinresult = await db.select().from(users).innerJoin(user_races, eq(users.id,user_races.userid)).where(eq(user_races.raceid,myrace.id));
+  const thisrace: Race = result[0];
+  const signedup = await db.select().from(users)
+    .innerJoin(signups, eq(users.id,signups.userid))
+    .where(eq(signups.raceid,thisrace.id));
     return (
       <div>
-        <h1>{myrace.name}</h1>
-        <div>Description: {myrace.description}</div>
+        <h1>{thisrace.name}</h1>
+        <div>Description: {thisrace.description}</div>
         <div>other stuff about the race here</div>
         <h1>Assigned Users:</h1>
-        <AssignedUsers  join={joinresult} thisrace={myrace}/>
+        <AssignedUsers  data={signedup} thisrace={thisrace}/>
       </div>
     )
   }
 
   function AssignedUsers(params: any)
   {
-    const userlist = params.join.map((user: any) => <div>Id:{user.users.id} First:{user.users.firstname} Last:{user.users.lastname}</div>);
+    const userlist = params.data.map((user: any) => <div>Id:{user.users.id} First:{user.users.firstname} Last:{user.users.lastname}</div>);
     
     return(
       <div>
           {userlist}
           <h2>Add New User to Race</h2>
-          <form action="/api/newraceuser" method="post">
+          <form action="/api/newsignup" method="post">
             <div>
               <label htmlFor="userid">Racer ID:</label>
               <input type="text" id="userid" name="userid" required minLength={1} maxLength={20}/>

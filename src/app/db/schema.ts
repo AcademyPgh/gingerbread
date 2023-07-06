@@ -31,15 +31,16 @@ export const races = mysqlTable("races", {
   updatedAt: timestamp("updated_at"),
 });
 
-export const user_races = mysqlTable("user_races", {
+export const signups = mysqlTable("signups", {
   id: serial("id"),
-  userid: int('userid').references(() => users.id),
-  raceid: int('raceid').references(() => races.id),
+  userid: int('userid'), //.references(() => users.id), planetscale doesnt do foreign keys
+  raceid: int('raceid'), //.references(() => races.id),
   bibnumber: int('bibnumber'),
   sensorid: int('sensorid'),
   totaltime: float('totaltime'),
   completed: boolean('completed'),
   paid: boolean('paid'),
+  checkedin: boolean('checkedin'),
   signupdate: timestamp('signupdate')
   
 });

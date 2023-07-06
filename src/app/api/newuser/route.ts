@@ -12,8 +12,8 @@ export async function POST(request: Request) {
 
     await db.insert(users).values(entry);
 
-    //redirect to the landing page; change the string literal for other site locations but be mindful that updating the database will take longer than the redirect
-    return NextResponse.redirect(new URL('/', request.url), 302);
+    //redirect to the user list; change the string literal for other site locations 
+    return NextResponse.redirect(new URL('/userlist', request.url), 302);
 }
 
   

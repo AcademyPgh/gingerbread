@@ -21,6 +21,21 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
+## handling the database
+### direct DB access
+* the database is hosted at https://app.planetscale.com/gingerbreadtiming/runnerbase, and login info is on the google drive
+* you can run SQL queries against it directly when necessary through the console section
+* NOTE: planetscale uses MYSQL(2); it DOES NOT accept foreign key constraints
+### ORM db access
+* generally, the application accesses the database through the drizzle ORM
+* drizzle's documentation is accessible at https://orm.drizzle.team/docs/quick-start; it's more complete than it look but you'll probably have to dig through it a bit to find what you want and there won't be many examples
+#### running migrations
+* you can create migrations by modifying the "schema.ts" file in the db folder
+* after editing the schema, run `npm run generate` to generate a migration based on the changes you have made to the schema
+    * the migration generator doesn't have access to the actual state of the database, so it only uses schema differences
+* once a migration is generated (and visible in the "drizzle" folder), navigate to [http://localhost:3000/dbmigrate](http://localhost:3000/dbmigrate) to run the migration
+    * a successful migration will not produce any feedback on the webpage--make sure to check the db on planetscale to confirm that the migration was successful
+
 ## contributing
 To commit to this project:
 * You do not need to fork it; just clone it to your local computer.
