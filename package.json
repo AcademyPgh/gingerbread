@@ -12,6 +12,7 @@
     "drop": "drizzle-kit drop"
   },
   "dependencies": {
+    "@auth0/nextjs-auth0": "^3.1.0",
     "@planetscale/database": "^1.7.0",
     "@types/node": "20.3.1",
     "@types/react": "18.2.13",

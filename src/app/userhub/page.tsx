@@ -1,7 +1,10 @@
-export default function Home() {
-    return (
-      <div>
-        User Hub
-      </div>
-    )
-  }
+import { withPageAuthRequired, getSession } from '@auth0/nextjs-auth0';
+
+export default withPageAuthRequired(
+  async function Profile() {
+    const session = await getSession();
+    const user = session?.user;
+    if(!user) return <div>User not found</div>;
+    return <div>Hello {user?.name}</div>;
+},
+{ returnTo: '/userhub' })

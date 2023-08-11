@@ -1,6 +1,9 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
 import Link from 'next/link'
+import React from 'react';
+import { UserProvider } from '@auth0/nextjs-auth0/client';
+import Profile from './usernamebar';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,15 +18,16 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-      <div className='navbar'>
-        <Link href="/">Home</Link>
-        <Link href="/userhub">My Account</Link>
-        <Link href="/login">Log In</Link>
-      </div>
-        {children}
-        </body>
-    </html>
+    <UserProvider>
+      <html lang="en">
+        <body className={inter.className}>
+        <div className='navbar'>
+          <Link href="/">Home</Link>
+          <Profile/>
+        </div>
+          {children}
+          </body>
+      </html>
+    </UserProvider>
   )
 }
