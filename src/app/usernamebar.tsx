@@ -1,7 +1,7 @@
 "use client"
+import { useUser } from '@auth0/nextjs-auth0/client';
 import React from 'react';
 import Link from 'next/link'
-import { useUser } from '@auth0/nextjs-auth0/client';
 
 export default function Profile() {
   const { user, error, isLoading } = useUser();
