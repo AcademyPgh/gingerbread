@@ -4,8 +4,9 @@ import { races } from './db/schema';
 import Image  from 'next/image';
 import logo from './images/Gingerbread.jpg';
 import people from './images/peoplerunning.jpg'
+import { RaceDisplay } from './racedisplay';
 //link import
-import Link from 'next/link'
+
 
 import './homestyles.css'
 
@@ -13,7 +14,7 @@ const result: Race[] = await db.select().from(races);
 
 export default function Home() {
   //build a list of races based on the race table, then pass the race object as a parameter to the component
-  const racelist = result.map((race,index) => {return(<RaceComponent myrace={race} key={index}/>);});
+  const racelist = result.map((race,index) => {return(<RaceDisplay myrace={race} key={index}/>);});
   return (
     <div>
       <Image
@@ -60,23 +61,4 @@ export default function Home() {
   )
 }
 
-//pull a couple fields out of the object to populate the list item
-function RaceComponent(props: any){
-  //see schema.ts for which fields you have access to through the Race object
-  const race: Race = props.myrace;
-  const start = race.starttime;
-  const fullDate = `${start?.getMonth()}/${start?.getDate()}/${start?.getFullYear()}`;
-  const fullTime = `${start?.getHours()}:${start?.getMinutes()}`;
 
-  //return our data from the db plus a dynamic route link based on the race ID
-  return (
-    <li className='listedrace'>
-      <div className='NamesOfRaces'> <Link href={`/races/${race.id}`}>{race.name}</Link></div>
-      
-      <div className='dateAndTime'> {fullDate} {fullTime}</div>
-      {/* <div> {fullTime}</div> */}
-      <div className='descInfo'> {race.description}</div>
-      {/* how are we going to handle overflow? wrap???  */}
-    </li>
-  )
-}

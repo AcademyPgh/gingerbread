@@ -3,6 +3,7 @@ import { db, Race } from '@/db/dbstuff';
 import { races, users, signups } from '@/db/schema';
 import { eq } from "drizzle-orm";
 import { getInternalUser } from '@/utils';
+import { RaceDisplay } from '@/racedisplay';
 
 export default withPageAuthRequired(
   async function Profile() {
@@ -14,9 +15,12 @@ export default withPageAuthRequired(
     const racelist = await db.select().from(races)
       .innerJoin(signups, eq(races.id,signups.raceid))
       .where(eq(signups.userid,internalUser.id));
+      const racemap = racelist.map((item,index) => {return(<RaceDisplay myrace={item.races} key={index}/>);});
     return (
       <div>
-        Hello {internalUser.phone}
+        Hello {internalUser.firstname}
+        <div>these are the races you're signed up for</div>
+        {racemap}
       </div>
     )
 },
