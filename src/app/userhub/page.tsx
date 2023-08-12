@@ -4,6 +4,7 @@ import { races, users, signups } from '@/db/schema';
 import { eq } from "drizzle-orm";
 import { getInternalUser } from '@/utils';
 import { RaceDisplay } from '@/racedisplay';
+import Link from 'next/link'
 
 export default withPageAuthRequired(
   async function Profile() {
@@ -21,7 +22,9 @@ export default withPageAuthRequired(
         Hello {internalUser.firstname}
         <div>these are the races you're signed up for</div>
         {racemap}
+        <Link href="/adminhub"><h1>Admin Hub</h1></Link>
       </div>
+      
     )
 },
 { returnTo: '/userhub' })

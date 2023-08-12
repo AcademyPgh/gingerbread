@@ -2,6 +2,7 @@
 import { db, Race } from '@/db/dbstuff';
 import { races, users, signups } from '@/db/schema';
 import { getInternalUser } from '@/utils';
+import { getSession } from '@auth0/nextjs-auth0';
 import { eq } from "drizzle-orm";
 
 //pull in race ID through URL
@@ -47,18 +48,23 @@ export default async function Page({ params }: { params: { raceid: number } }) {
 
   async function SignMeUp(params: any)
   {
+    //if there's no login, prompt the user to login
+    const session =  await getSession();
+    if(!session) return (<h2>Log in to sign up for this race!</h2>);
+
+    //if the logged in user is already signed up, let them know
     const userlist = params.data.map((user: any) => user.users.id);
     const internalUser = await getInternalUser();
     for(var user in userlist)
     {
-      if(parseInt(user) == internalUser.id) return (<>looks like you're already signed up!</>);
+      if(parseInt(user) == internalUser.id) return (<>looks like you're already signed up for this race!</>);
     }
    
+    //otherwise allow a signup
     return(
       <div>
           <form action="/api/newsignup" method="post">
             <div>
-              <label htmlFor="userid">Racer ID:</label>
               <input type="hidden" id="userid" name="userid" value={internalUser.id}/>
             </div>
               <input type="hidden" id="raceid" name="raceid" value={params.thisrace.id}/>
