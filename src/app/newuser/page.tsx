@@ -10,7 +10,6 @@ export default function Home() {
         <div className="breakBar"></div>
         <div className="formHolder">
             <div className="newMemberPageContainer">
-                {/* <div className="sideBar"></div> */}
                 <form action="/api/newuser" method="post" className='newMemberRegistrationForm'>
                     <div className="vertical">
                         <label htmlFor="firstname">First Name:</label>
@@ -19,24 +18,6 @@ export default function Home() {
                     <div className="vertical">
                         <label htmlFor="lastname">Last Name:</label>
                         <input className="textField" type="text" id="lastname" name="lastname" minLength={2} maxLength={20}/>
-                    </div>
-                    <div className="vertical">
-                        <label htmlFor="email">Email:</label>
-                        <input className="textField" type="text" id="email" name="email" required minLength={1}/>
-                    </div>
-                    {/* check confirmation against email submission */}
-                    <div className="vertical">
-                        <label htmlFor="email">Confirm Email:</label>
-                        <input className="textField" type="text" id="email" name="email" required minLength={1}/>
-                    </div>
-                    <div className="vertical">
-                        <label htmlFor="password">Password:</label>
-                        <input className="textField" type="text" id="password" name="password" required minLength={1}/>
-                    </div>
-                    {/* check confirmation against password submission */}
-                    <div className="vertical">
-                        <label htmlFor="password">Confirm Password:</label>
-                        <input className="textField" type="text" id="password" name="password" required minLength={1}/>
                     </div>
                     
                     <div style={{display: 'flex'}}>
@@ -401,16 +382,9 @@ export default function Home() {
                         <label htmlFor="emergencyphone">Emergency Contact Phone Number:</label>
                         <input className="textField" type="text" id="emergencyphone" name="emergencyphone" required minLength={5}/>
                     </div>
-                    <div className="vertical" style={{marginRight: '500px'}}>
-                        <label htmlFor="emergencyaddress">Emergency Contact Address:</label>
-                        <input className="textField" type="text" id="emergencyaddress" name="emergencyaddress" required minLength={5}/>
-                    </div>
-
-
 
                     <button className="submitButton" type="submit">Register</button>
                 </form>
-                {/* <div className="sideBar"></div> */}
             </div>
         </div>
       </div>
