@@ -12,3 +12,58 @@
     flex-direction: column;
     justify-content: space-around;
 }
+.centered {
+    display: flex;
+    justify-content: center;
+}
+.breakBar {
+    width: 100%;
+    height: 5vh;
+    background-color: #B09070;
+    padding: 10px 0px;
+}
+.sideBar {
+    width: 20%;
+    background: yellow;
+}
+.vertical {
+    display: flex;
+    flex-direction: column;
+    /* background: green; */
+    width: 450px;
+    padding: 10px 0px;
+}
+.formHolder {
+    display: flex;
+    justify-content: center;
+}
+.newMemberPageContainer {
+    display: flex;
+    /* background: fuchsia; */
+    flex-direction: row;
+    width: 1000px;
+    margin: 10px 0px;
+}
+.newMemberRegistrationForm {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.textField {
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 35px;
+}
+.dropDown {
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 35px;
+}
+.submitButton {
+    width: 15%;
+    height: 40px;
+    margin: 10px 40%;
+    border: 1px solid black;
+    border-radius: 10px;
+}
