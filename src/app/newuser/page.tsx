@@ -1,9 +1,17 @@
+"use client"
+import { useUser } from '@auth0/nextjs-auth0/client';
 import '@/globals.css';
+import { redirect } from 'next/navigation';
 
 export default function Home() {
     //fields need to be matched on api/route.ts in the NewRace object
     //date and/or time fields will break the 'insert' if they are null so keep them required
-    
+    const { user, error, isLoading } = useUser();
+
+    if (isLoading) return <div>Loading...</div>;
+    if (error) return <div>{error.message}</div>;
+    if(!user) redirect('api/auth/login');
+
     return (
       <div>
         <h1 className="centered">New Member Registration</h1>
@@ -372,8 +380,10 @@ export default function Home() {
                                 <option value="WY">Wyoming</option>
                                 </select>                     
                         </div>
-                    </div>
-
+                  </div>       
+            <div>
+                <input type="hidden" value={user.email ?? ''} id="email" name="email" required/>
+                  </div>
                     <div className="vertical">
                         <label htmlFor="emergencyname">Emergency Contact Name:</label>
                         <input className="textField" type="text" id="emergencyname" name="emergencyname" required minLength={5}/>

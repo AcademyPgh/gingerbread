@@ -8,7 +8,7 @@ export async function POST(request: Request) {
     const form = Object.fromEntries(data);
 
     //parse the form data into the corresponding db ORM fields
-    const entry: NewUser = {username: String(form.username), firstname: String(form.firstname), lastname: String(form.lastname), email: String(form.email), phone: String(form.phone), emergencyname: String(form.emergencyname), emergencyphone: String(form.emergencyphone), role: 'customer', createdAt: new Date()};
+    const entry: NewUser = {firstname: String(form.firstname), lastname: String(form.lastname), email: String(form.email), phone: String(form.phone), emergencyname: String(form.emergencyname), emergencyphone: String(form.emergencyphone), role: 'customer', createdAt: new Date()};
 
     await db.insert(users).values(entry);
 
