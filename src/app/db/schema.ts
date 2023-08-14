@@ -2,11 +2,17 @@ import { serial, text, timestamp, mysqlTable, datetime, varchar, int, float, boo
  
 export const users = mysqlTable("users", {
   id: serial("id"),
-  username: varchar("username", {length: 255}),
   firstname: varchar("firstname", {length: 255}),
   lastname: varchar("lastname", {length: 255}),
   email: varchar("email", {length: 255}),
+  birthday: varchar("birthday", {length: 255}),
+  gender: varchar("gender", {length: 255}),
   phone: varchar("phone", {length: 255}),
+  address: varchar("address", {length: 255}),
+  country: varchar("country", {length: 255}),
+  zip: varchar("zip", {length: 255}),
+  city: varchar("city", {length: 255}),
+  state: varchar("state", {length: 255}),
   emergencyname: varchar("emergencyname", {length: 255}),
   emergencyphone: varchar("emergencyphone", {length: 255}),
   role: text("role").$type<"admin" | "customer">(),
@@ -42,7 +48,6 @@ export const signups = mysqlTable("signups", {
   paid: boolean('paid'),
   checkedin: boolean('checkedin'),
   signupdate: timestamp('signupdate')
-  
 });
 
 //timings

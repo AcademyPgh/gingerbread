@@ -29,6 +29,13 @@
       "when": 1688660040729,
       "tag": "0003_worried_magneto",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1692044083536,
+      "tag": "0004_simple_talos",
+      "breakpoints": true
     }
   ]
 }
