@@ -20,7 +20,7 @@ export default withPageAuthRequired(
     return (
       <div>
         Hello {internalUser.firstname}
-        <div>these are the races you're signed up for</div>
+        <div>these are the races you're signed up for. test</div>
         {racemap}
         <Link href="/adminhub"><h1>Admin Hub</h1></Link>
       </div>
